@@ -2,7 +2,7 @@ module Apidiesel
 
   # Wrapper for API requests
   class Request
-    attr_accessor :action, :parameters, :response_body, :http_request, :http_response, :metadata, :result
+    attr_accessor :action, :parameters, :response_body, :http_request, :http_response, :metadata, :result, :url
 
     # @param [Apidiesel::Action] action
     # @param [Hash] parameters
@@ -12,10 +12,7 @@ module Apidiesel
       @parameters       = parameters
       @metadata         = metadata
       action.parameters = parameters
-    end
-
-    def url
-      action.url
+      @url              = action.url
     end
 
     def response_body
